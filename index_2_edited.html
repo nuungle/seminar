@@ -1,0 +1,1061 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>눙글이 쉽게 풀어쓴 하반기 ETF 투자전략</title>
+<meta name="description" content="어려운 ETF 세미나 내용을 투자 초보자도 이해할 수 있게 눙글이 쉽게 풀어썼어요.">
+<meta property="og:title" content="눙글이 쉽게 풀어쓴 하반기 ETF 투자전략">
+<meta property="og:description" content="ETF 이름 읽는 법부터 투자할 때 확인할 점까지, 눙글과 함께 쉽게 알아봐요.">
+<meta property="og:type" content="article">
+<meta name="theme-color" content="#f6f9fe">
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/orioncactus/pretendard@v1.3.9/dist/web/variable/pretendardvariable-dynamic-subset.min.css">
+<link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@500;700&display=swap" rel="stylesheet">
+<style>
+:root{
+  --ink:#111a29; --ink2:#465569; --ink3:#8492a6;
+  --paper:#f6f9fe; --paper2:#e8f0fc; --card:#fff;
+  --line:#dde7f6; --line2:#c3d4ee;
+  --blue:#2563d9; --blue2:#4d87f0; --bluebg:#e9f1ff; --bluedk:#194391; --sky:#5b94f5;
+  --navy:#12274d;
+  --coral:#e0533a; --coralbg:#fdece7;
+  --green:#0f8168; --greenbg:#e0f2ed;
+  --sh:0 1px 2px rgba(17,26,41,.04),0 12px 26px -20px rgba(23,53,110,.45);
+  --mono:"JetBrains Mono",ui-monospace,Menlo,monospace;
+  --sans:"Pretendard Variable",Pretendard,-apple-system,BlinkMacSystemFont,system-ui,sans-serif;
+  --pad:18px;
+}
+*{box-sizing:border-box;-webkit-tap-highlight-color:transparent}
+html{scroll-behavior:smooth;scroll-padding-top:82px;-webkit-text-size-adjust:100%}
+body{margin:0;background:var(--paper);color:var(--ink);font-family:var(--sans);
+ font-size:16px;line-height:1.72;letter-spacing:-.014em;word-break:keep-all;overflow-wrap:break-word;
+ -webkit-font-smoothing:antialiased;overflow-x:hidden;-webkit-user-select:none;user-select:none}
+input,button{-webkit-user-select:auto;user-select:auto}
+h1,h2,h3,h4{margin:0;font-weight:800;letter-spacing:-.042em;line-height:1.24}
+p{margin:0 0 .9em}p:last-child{margin:0}
+ul,ol{margin:0;padding:0;list-style:none}
+button,input,select{font-family:inherit;font-size:inherit;color:inherit}
+:focus-visible{outline:2px solid var(--blue);outline-offset:2px;border-radius:6px}
+.w{max-width:760px;margin:0 auto;padding:0 var(--pad)}
+.rv{opacity:0;transform:translateY(16px);transition:opacity .6s cubic-bezier(.16,1,.3,1),transform .6s cubic-bezier(.16,1,.3,1)}
+.rv.in{opacity:1;transform:none}
+
+/* bar */
+.bar{position:fixed;top:0;left:0;right:0;z-index:80;background:rgba(246,249,254,.94);
+ -webkit-backdrop-filter:blur(16px);backdrop-filter:blur(16px);border-bottom:1px solid var(--line);
+ padding-top:0}
+.bar-in{max-width:760px;margin:0 auto;padding:9px var(--pad) 10px}
+.bar-t{font-size:12.5px;font-weight:700;color:var(--ink2);white-space:nowrap;overflow:hidden;
+ text-overflow:ellipsis;margin-bottom:8px}
+.bar-t b{color:var(--blue)}
+.pills{display:flex;gap:6px;overflow-x:auto;scrollbar-width:none;-ms-overflow-style:none;
+ margin:0 calc(var(--pad)*-1);padding:0 var(--pad)}
+.pills::-webkit-scrollbar{display:none}
+.pills a{flex:0 0 auto;font-size:13px;font-weight:700;text-decoration:none;color:var(--ink2);
+ padding:6px 12px;border-radius:999px;background:var(--paper2);transition:.2s;white-space:nowrap}
+.pills a.on{background:var(--blue);color:#fff}
+#prog{position:absolute;left:0;bottom:-1px;height:2.5px;background:linear-gradient(90deg,var(--blue),var(--sky));width:0;transition:width .1s linear}
+
+/* hero */
+.hero{padding:130px 0 46px;position:relative;overflow:hidden}
+.hero::before{content:"";position:absolute;top:-180px;right:-150px;width:460px;height:460px;border-radius:50%;
+ background:radial-gradient(circle,rgba(77,135,240,.26),rgba(77,135,240,0) 68%);animation:float 11s ease-in-out infinite}
+.hero::after{content:"";position:absolute;top:60px;left:-170px;width:320px;height:320px;border-radius:50%;
+ background:radial-gradient(circle,rgba(37,99,217,.13),rgba(37,99,217,0) 70%);animation:float 13s ease-in-out infinite reverse}
+@keyframes float{0%,100%{transform:translate(0,0)}50%{transform:translate(-26px,28px)}}
+.tagline{display:inline-block;font-size:12.5px;font-weight:800;color:#fff;background:var(--blue);
+ padding:7px 14px;border-radius:999px;margin-bottom:18px;position:relative;box-shadow:0 6px 16px -8px rgba(37,99,217,.7)}
+.hero h1{font-size:clamp(33px,9.2vw,52px);line-height:1.18;letter-spacing:-.05em;position:relative}
+.hero h1 .hl{background:linear-gradient(transparent 60%,rgba(91,148,245,.42) 60%);background-size:0% 100%;
+ background-repeat:no-repeat;transition:background-size .9s .35s cubic-bezier(.16,1,.3,1)}
+.hero.lit h1 .hl{background-size:100% 100%}
+.hero>.w>p{margin-top:18px;font-size:16.5px;color:var(--ink2);position:relative}
+.meta{display:flex;flex-wrap:wrap;gap:7px;margin-top:22px;position:relative}
+.meta span{font-size:12.5px;font-weight:700;color:var(--bluedk);background:var(--bluebg);
+ padding:6px 12px;border-radius:999px}
+.cue{margin-top:28px;font-size:13px;color:var(--ink3);font-weight:700;display:flex;align-items:center;gap:8px;position:relative}
+.cue i{width:14px;height:14px;border-right:2.5px solid var(--blue);border-bottom:2.5px solid var(--blue);
+ transform:rotate(45deg);animation:bob 1.7s ease-in-out infinite}
+@keyframes bob{0%,100%{transform:rotate(45deg) translate(0,0)}50%{transform:rotate(45deg) translate(3px,3px)}}
+
+/* sections */
+section.s{padding:52px 0;border-top:1px solid var(--line)}
+.stitle{display:flex;align-items:center;gap:10px;margin-bottom:14px}
+.stitle .no{flex:0 0 auto;font-family:var(--mono);font-size:12.5px;font-weight:700;color:#fff;background:var(--blue);
+ padding:4px 9px;border-radius:8px}
+.stitle h2{font-size:clamp(27px,7.4vw,38px);letter-spacing:-.05em;line-height:1.18}
+.hook{font-size:clamp(19px,5vw,23px);font-weight:800;letter-spacing:-.042em;line-height:1.36;margin-bottom:10px;color:var(--bluedk)}
+.lead{font-size:16px;color:var(--ink2)}
+h3.h{font-size:20px;margin:38px 0 14px;letter-spacing:-.04em}
+h3.h:first-child{margin-top:0}
+h3.big{font-size:clamp(24px,6.6vw,32px);letter-spacing:-.048em;line-height:1.26;margin:42px 0 6px}
+h3.big em{font-style:normal;color:var(--blue)}
+.bigsub{font-size:14.5px;color:var(--ink3);font-weight:600;margin-bottom:16px}
+.small{font-size:13px;color:var(--ink3);line-height:1.66;margin-top:11px}
+
+/* accordion */
+.ac{background:var(--card);border:1px solid var(--line);border-radius:16px;margin-bottom:9px;box-shadow:var(--sh);overflow:hidden}
+.ac-h{width:100%;display:flex;align-items:center;gap:11px;text-align:left;background:none;border:0;
+ padding:16px 15px;cursor:pointer;font-weight:800;font-size:16.5px;letter-spacing:-.035em;line-height:1.42}
+.ac-h .n{flex:0 0 auto;font-family:var(--mono);font-size:11.5px;font-weight:700;color:var(--blue);
+ background:var(--bluebg);min-width:27px;height:27px;padding:0 5px;border-radius:9px;display:grid;place-items:center}
+.ac-h .tt{flex:1}
+.ac-h .cv{flex:0 0 auto;width:11px;height:11px;border-right:2.5px solid var(--ink3);border-bottom:2.5px solid var(--ink3);
+ transform:rotate(45deg) translate(-2px,-2px);transition:transform .3s cubic-bezier(.16,1,.3,1)}
+.ac.on .ac-h .cv{transform:rotate(-135deg) translate(-2px,-2px);border-color:var(--blue)}
+.ac-b{display:grid;grid-template-rows:0fr;transition:grid-template-rows .34s cubic-bezier(.16,1,.3,1)}
+.ac.on .ac-b{grid-template-rows:1fr}
+.ac-in{overflow:hidden}
+.ac-p{padding:0 15px 17px;font-size:15px;color:var(--ink2);line-height:1.74}
+.ac-p b{color:var(--ink)}
+.ac-p .kv{margin-top:12px;padding-top:12px;border-top:1px solid var(--line)}
+.ac-p .kv>div{display:flex;gap:10px;padding:5px 0;font-size:14.5px}
+.ac-p .kv dt{flex:0 0 80px;font-weight:800;color:var(--blue);font-size:13px;padding-top:1px}
+.ac-p .kv dd{margin:0;flex:1}
+.ac.hot{border-left:4px solid var(--coral)}
+.ac.hot .ac-h .n{color:var(--coral);background:var(--coralbg)}
+.ac.good{border-left:4px solid var(--green)}
+.ac.good .ac-h .n{color:var(--green);background:var(--greenbg)}
+
+/* swipe */
+.swipe{display:flex;gap:11px;overflow-x:auto;scroll-snap-type:x mandatory;scrollbar-width:none;
+ margin:0 calc(var(--pad)*-1);padding:2px var(--pad) 12px}
+.swipe::-webkit-scrollbar{display:none}
+.swipe>div{flex:0 0 100%;scroll-snap-align:center;background:var(--card);border:1px solid var(--line);
+ border-radius:18px;padding:20px 18px;box-shadow:var(--sh)}
+.swipe .tag{font-family:var(--mono);font-size:11px;font-weight:700;color:var(--blue);display:block;margin-bottom:9px}
+.swipe h4{font-size:18px;margin-bottom:9px;line-height:1.34}
+.swipe p{font-size:14.5px;color:var(--ink2);line-height:1.68;word-break:normal;text-align:left}
+.swipe .live{border:2px solid var(--blue);background:linear-gradient(180deg,#f2f7ff,#fff)}
+.swipe .live .tag::after{content:" ● 지금 여기";color:var(--coral)}
+.dots{display:flex;gap:6px;justify-content:center;margin-top:-4px}
+.dots i{width:6px;height:6px;border-radius:50%;background:var(--line2);transition:.25s}
+.dots i.on{background:var(--blue);width:18px;border-radius:99px}
+.hintsw{text-align:center;font-size:12.5px;color:var(--ink3);margin-top:10px;font-weight:700}
+
+/* three keys — light */
+.keys{display:grid;gap:11px}
+.keyx{background:var(--card);border:1px solid var(--line);border-left:5px solid var(--blue);
+ border-radius:16px;padding:19px 18px;box-shadow:var(--sh)}
+.keyx i{font-family:var(--mono);font-style:normal;font-size:12px;font-weight:700;color:#fff;background:var(--blue);
+ width:26px;height:26px;border-radius:9px;display:grid;place-items:center;margin-bottom:11px}
+.keyx b{display:block;font-size:21px;font-weight:800;letter-spacing:-.045em;margin-bottom:6px}
+.keyx span{font-size:14.3px;color:var(--ink2);line-height:1.64;display:block}
+.mark{font-weight:800;color:var(--ink);background:linear-gradient(transparent 56%,#fff09a 56%);padding:0 .05em}
+.keyx:nth-child(2){border-left-color:var(--sky)}
+.keyx:nth-child(2) i{background:var(--sky)}
+.keyx:nth-child(3){border-left-color:var(--bluedk)}
+.keyx:nth-child(3) i{background:var(--bluedk)}
+
+/* vs */
+.vs{display:grid;gap:9px}
+.vs>div{border-radius:16px;padding:19px 17px}
+.vs .a{background:var(--paper2)}
+.vs .b{background:var(--navy);color:#eef4ff}
+.vs .t{font-size:12px;font-weight:800;margin-bottom:9px}
+.vs .a .t{color:var(--coral)}.vs .b .t{color:var(--sky)}
+.vs h4{font-size:18.5px;line-height:1.38;margin-bottom:8px}
+.vs p{font-size:14.5px}
+.vs .a p{color:var(--ink2)}.vs .b p{color:rgba(238,244,255,.74)}
+.vsmid{text-align:center;font-family:var(--mono);font-size:12px;color:var(--ink3);font-weight:700;margin:-2px 0}
+
+/* decoder */
+.dec{background:var(--navy);border-radius:20px;padding:22px 18px;color:#eef4ff}
+.dec .cp{font-size:12.5px;font-weight:700;color:rgba(238,244,255,.55);margin-bottom:13px}
+.segs{display:flex;flex-wrap:wrap;gap:6px}
+.seg{font-size:clamp(17px,4.6vw,24px);font-weight:800;letter-spacing:-.045em;background:none;border:0;
+ border-bottom:2px dashed rgba(238,244,255,.3);color:rgba(238,244,255,.5);padding:2px 3px 5px;cursor:pointer;transition:.18s}
+.seg.on{color:#8fb8fb;border-bottom:2px solid #8fb8fb;transform:translateY(-1px)}
+.dec-out{margin-top:19px;border-top:1px solid rgba(238,244,255,.16);padding-top:17px;min-height:160px}
+.dec-out.flash{animation:fadein .34s cubic-bezier(.16,1,.3,1)}
+@keyframes fadein{from{opacity:0;transform:translateY(7px)}to{opacity:1;transform:none}}
+.dec-out .rl{font-size:12.5px;font-weight:800;color:#8fb8fb;margin-bottom:7px}
+.dec-out h4{font-size:18.5px;margin-bottom:9px;line-height:1.36}
+.dec-out p{font-size:14.5px;color:rgba(238,244,255,.75);line-height:1.72}
+.dec-out p+p{margin-top:8px}
+.dec-out b{color:#fff}
+.dec-tip{margin-top:14px;font-size:12.5px;color:rgba(238,244,255,.55);line-height:1.62}
+.dec-tip[hidden]{display:none}
+.dec-tip b{color:#8fb8fb}
+
+/* tips */
+.tipl>div{display:flex;gap:12px;padding:15px 0;border-bottom:1px solid var(--line)}
+.tipl i{flex:0 0 auto;font-family:var(--mono);font-style:normal;font-size:11.5px;font-weight:700;color:#fff;
+ background:var(--blue);width:26px;height:26px;border-radius:9px;display:grid;place-items:center;margin-top:2px}
+.tipl h4{font-size:16.5px;margin-bottom:4px}
+.tipl p{font-size:14.4px;color:var(--ink2);line-height:1.66}
+
+/* tool */
+.tool{background:var(--card);border:1px solid var(--line2);border-radius:20px;padding:20px 17px;box-shadow:var(--sh)}
+.tool-h{display:flex;align-items:center;gap:9px;margin-bottom:8px}
+.tool-h h3{font-size:19px;margin:0}
+.tool-h .bd{font-size:11px;font-weight:800;color:#fff;background:var(--blue);padding:3px 10px;border-radius:999px}
+.tool>.small{margin:0 0 17px}
+.fields{display:grid;grid-template-columns:1fr 1fr;gap:11px}
+.f label{display:block;font-size:12.5px;font-weight:800;color:var(--ink2);margin-bottom:5px}
+.f input{width:100%;padding:12px;border:1px solid var(--line2);border-radius:12px;background:var(--paper);
+ font-family:var(--mono);font-size:15.5px;font-weight:700;-webkit-appearance:none;appearance:none}
+.f input:focus{border-color:var(--blue);background:#fff}
+.f .u{font-size:11.5px;color:var(--ink3);margin-top:4px;display:block}
+.out{margin-top:18px;border-top:1px solid var(--line);padding-top:16px}
+.figs{display:grid;grid-template-columns:1fr 1fr;gap:9px}
+.fig{background:var(--paper2);border-radius:14px;padding:13px}
+.fig b{display:block;font-family:var(--mono);font-size:21px;font-weight:700;letter-spacing:-.03em;line-height:1.2}
+.fig span{font-size:12px;color:var(--ink2);display:block;margin-top:4px;line-height:1.45}
+.fig.pos b{color:var(--green)}.fig.neg b{color:var(--coral)}
+.vd{margin-top:11px;border-radius:15px;padding:15px;font-size:14.3px;line-height:1.7;animation:fadein .34s}
+.vd b{display:block;font-size:16px;margin-bottom:5px}
+.v-ok{background:var(--greenbg);color:#0b5f4c}
+.v-warn{background:var(--coralbg);color:#93341e}
+.v-mid{background:var(--bluebg);color:var(--bluedk)}
+
+/* tabs */
+.tabs{display:flex;gap:6px;margin-bottom:16px;overflow-x:auto;scrollbar-width:none;
+ margin-left:calc(var(--pad)*-1);margin-right:calc(var(--pad)*-1);padding:0 var(--pad)}
+.tabs::-webkit-scrollbar{display:none}
+.tabs button{flex:0 0 auto;font-weight:800;font-size:14.5px;padding:10px 17px;border-radius:999px;
+ border:1px solid var(--line2);background:var(--card);color:var(--ink2);cursor:pointer;transition:.22s;white-space:nowrap}
+.tabs button.on{background:var(--blue);border-color:var(--blue);color:#fff;transform:translateY(-1px);
+ box-shadow:0 8px 18px -10px rgba(37,99,217,.9)}
+.panel[hidden]{display:none}
+.panel{animation:fadein .34s}
+.ph{margin-bottom:13px}
+.ph h4{font-size:21px;letter-spacing:-.045em;line-height:1.3}
+.ph .who{font-size:13px;font-weight:800;color:var(--bluedk);background:var(--bluebg);
+ display:inline-block;padding:4px 11px;border-radius:999px;margin-top:9px}
+
+.flow{display:grid;gap:9px;margin-top:14px}
+.flow .st{background:var(--card);border:1px solid var(--line);border-radius:15px;padding:15px;display:flex;gap:12px}
+.flow .st i{flex:0 0 auto;font-family:var(--mono);font-style:normal;font-size:11px;font-weight:700;color:#fff;
+ background:var(--blue);width:24px;height:24px;border-radius:8px;display:grid;place-items:center}
+.flow .st h4{font-size:15.5px;margin-bottom:3px}
+.flow .st p{font-size:13.8px;color:var(--ink2);line-height:1.62}
+
+.pc{margin-top:16px;display:grid;gap:14px}
+.pc h5{font-size:13px;font-weight:800;margin:0 0 6px}
+.pc .p h5{color:var(--green)}.pc .c h5{color:var(--coral)}
+.pc li{font-size:14.3px;color:var(--ink2);padding:6px 0 6px 20px;position:relative;line-height:1.64}
+.pc li::before{position:absolute;left:0;top:6px;font-family:var(--mono);font-size:13px;font-weight:700}
+.pc .p li::before{content:"+";color:var(--green)}
+.pc .c li::before{content:"−";color:var(--coral)}
+
+.conc{display:grid;gap:13px;margin-top:6px}
+.conc b{font-size:14px;display:block;margin-bottom:6px}
+.trk{display:flex;height:34px;border-radius:11px;overflow:hidden;border:1px solid var(--line)}
+.trk div{display:flex;align-items:center;justify-content:center;font-family:var(--mono);font-size:11px;font-weight:700;
+ transition:flex 1s cubic-bezier(.16,1,.3,1)}
+.trk .t3{background:var(--blue);color:#fff}
+.trk .rs{background:var(--paper2);color:var(--ink2)}
+
+.stats{display:grid;grid-template-columns:1fr 1fr;gap:9px;margin:15px 0}
+.stat{background:var(--bluebg);border-radius:15px;padding:15px}
+.stat b{display:block;font-family:var(--mono);font-size:24px;font-weight:700;letter-spacing:-.03em;color:var(--bluedk)}
+.stat span{font-size:12.3px;color:var(--ink2);display:block;margin-top:4px;line-height:1.52}
+.stat.wide{grid-column:1/-1}
+
+.tw{overflow-x:auto;margin:0 calc(var(--pad)*-1);padding:0 var(--pad)}
+table{border-collapse:collapse;min-width:560px;width:100%;font-size:14px}
+th,td{text-align:left;padding:13px;border-bottom:1px solid var(--line);vertical-align:top}
+thead th{background:var(--navy);color:#fff;font-size:12.5px;border-bottom:0}
+thead th:first-child{border-radius:12px 0 0 0}thead th:last-child{border-radius:0 12px 0 0}
+tbody th{width:88px;font-size:12.8px}
+td{color:var(--ink2)}
+
+.phase>div{background:var(--card);border:1px solid var(--line);border-radius:15px;padding:14px 15px;margin-bottom:8px;
+ box-shadow:var(--sh)}
+.phase .w1{font-size:13.5px;color:var(--ink2);margin-bottom:5px}
+.phase .w2{font-size:16px;font-weight:800;letter-spacing:-.038em}
+.phase .w2::before{content:"→ ";color:var(--blue);font-family:var(--mono)}
+.mixbox{background:var(--bluebg);border-radius:18px;padding:20px 18px}
+.mixbox .r{display:flex;gap:12px;align-items:baseline;padding:9px 0;border-bottom:1px solid rgba(37,99,217,.14)}
+.mixbox .r:last-child{border-bottom:0}
+.mixbox .pcnt{flex:0 0 76px;font-family:var(--mono);font-size:17px;font-weight:700;color:var(--blue)}
+.mixbox .nm{font-size:15.5px;font-weight:800;display:block}
+.mixbox .ds{font-size:13.5px;color:var(--ink2);line-height:1.55;display:block;margin-top:2px}
+
+.gs input{width:100%;padding:13px 15px;border:1px solid var(--line2);border-radius:14px;background:var(--card);font-size:15px}
+.gs input:focus{border-color:var(--blue)}
+.gl>div{padding:13px 0;border-bottom:1px solid var(--line)}
+.gl dt{font-size:15.5px;font-weight:800;margin-bottom:3px;letter-spacing:-.035em}
+.gl dt em{font-style:normal;font-family:var(--mono);font-size:11.5px;color:var(--ink3);margin-left:6px;font-weight:500}
+.gl dd{margin:0;font-size:14px;color:var(--ink2);line-height:1.64}
+.gnone{padding:20px 0;color:var(--ink3);font-size:14.5px}
+
+.take{background:linear-gradient(160deg,var(--navy),#1c3f7d);color:#eef4ff;border-radius:22px;padding:30px 20px}
+.take .cp{font-size:12.5px;font-weight:800;color:#8fb8fb;margin-bottom:20px}
+.take li{display:flex;gap:12px;margin-bottom:18px}
+.take li:last-child{margin-bottom:0}
+.take li i{flex:0 0 auto;font-family:var(--mono);font-style:normal;font-size:12px;font-weight:700;color:var(--navy);
+ background:#8fb8fb;width:25px;height:25px;border-radius:8px;display:grid;place-items:center;margin-top:3px}
+.take b{display:block;font-size:17.5px;letter-spacing:-.042em;line-height:1.38;margin-bottom:4px}
+.take span{font-size:14px;color:rgba(238,244,255,.66);line-height:1.62}
+
+.fab{position:fixed;right:16px;bottom:calc(16px + env(safe-area-inset-bottom));z-index:70;width:46px;height:46px;
+ border-radius:50%;border:0;background:var(--blue);box-shadow:0 8px 22px -8px rgba(37,99,217,.9);cursor:pointer;
+ opacity:0;pointer-events:none;transform:translateY(10px);transition:.28s;display:grid;place-items:center}
+.fab.on{opacity:1;pointer-events:auto;transform:none}
+.fab i{width:11px;height:11px;border-left:2.5px solid #fff;border-top:2.5px solid #fff;transform:rotate(45deg) translate(1px,1px)}
+
+footer{border-top:1px solid var(--line);background:var(--paper2)}
+.ft{max-width:760px;margin:0 auto;padding:30px var(--pad) 60px}
+.profile{background:#fff;color:var(--ink);border:1px solid var(--line);border-radius:22px;padding:22px 18px;
+ margin-bottom:22px;box-shadow:var(--sh);display:grid;grid-template-columns:94px minmax(0,1fr);gap:18px;align-items:center}
+.profile-avatar{width:94px;height:94px;border-radius:50%;overflow:hidden;border:1px solid var(--line2);background:#fff;
+ display:grid;place-items:center;box-shadow:0 10px 24px -18px rgba(18,39,77,.7)}
+.profile-avatar img{display:block;width:100%;height:100%;object-fit:cover}
+.profile-head{display:flex;align-items:center;gap:7px;margin-bottom:3px}
+.profile-head h3{font-family:var(--sans);font-size:23px;letter-spacing:-.045em;margin:0}
+.profile-head .verified{display:grid;place-items:center;width:18px;height:18px;border-radius:50%;background:var(--blue);color:#fff;
+ font-size:11px;font-weight:900}
+.profile-tag{font-size:13.5px;color:var(--ink2);margin-bottom:8px}
+.profile-stats{display:flex;flex-wrap:wrap;gap:5px 14px;font-size:12.5px;color:var(--ink2);margin-bottom:9px}
+.profile-stats b{color:var(--ink);font-weight:850}
+.profile-bio{font-size:13px;color:var(--ink2);line-height:1.65;margin:0}
+.profile-links{display:flex;flex-wrap:wrap;gap:5px 13px;margin-top:10px;font-size:12.5px;font-weight:800;color:var(--blue)}
+.profile .made{grid-column:1/-1;justify-self:start;display:inline-block;margin-top:-2px;padding:5px 10px;border-radius:999px;
+ background:var(--bluebg);font-size:11.5px;font-weight:800;color:var(--blue)}
+.disc{font-size:12.5px;color:var(--ink3);line-height:1.72;border-left:3px solid var(--line2);padding-left:13px;margin-bottom:18px}
+.fm{font-size:12.5px;color:var(--ink3);display:flex;flex-wrap:wrap;gap:4px 16px}
+.source-stamp{position:fixed;left:14px;bottom:calc(14px + env(safe-area-inset-bottom));z-index:65;pointer-events:none;
+ padding:5px 10px;border:1px solid rgba(37,99,217,.18);border-radius:999px;background:rgba(246,249,254,.9);
+ -webkit-backdrop-filter:blur(8px);backdrop-filter:blur(8px);color:var(--blue);font-size:10.5px;font-weight:850;
+ letter-spacing:-.01em;box-shadow:0 5px 14px -10px rgba(18,39,77,.7)}
+.guard-toast{position:fixed;left:50%;bottom:calc(76px + env(safe-area-inset-bottom));z-index:120;width:min(420px,calc(100% - 36px));
+ transform:translate(-50%,16px);opacity:0;pointer-events:none;background:rgba(18,39,77,.96);color:#fff;border-radius:15px;
+ padding:13px 16px;font-size:13px;font-weight:750;line-height:1.55;text-align:center;box-shadow:0 16px 34px -18px rgba(18,39,77,.9);
+ transition:opacity .24s,transform .24s}
+.guard-toast.on{opacity:1;transform:translate(-50%,0)}
+
+@media print{
+ body>*{display:none!important}
+ body::after{content:"© 눙글 · 무단 복제 및 인쇄를 허용하지 않습니다.";display:block!important;padding:40px;
+  color:#111;font-size:18px;font-weight:800}
+}
+
+@media (min-width:720px){
+  :root{--pad:26px}
+  body{font-size:17px}
+  .w,.bar-in,.ft{max-width:820px}
+  .bar-in{display:flex;align-items:center;gap:20px;padding:11px 26px}
+  .bar-t{margin:0;font-size:13.5px;flex:0 0 auto}
+  .pills{margin:0 0 0 auto;padding:0}
+  .hero{padding:118px 0 56px}
+  section.s{padding:74px 0}
+  .swipe{display:grid;grid-template-columns:repeat(3,1fr);margin:0;padding:0;overflow:visible}
+  .swipe>div{flex:none}
+  .dots,.hintsw{display:none}
+  .keys{grid-template-columns:repeat(3,1fr)}
+  .vs{grid-template-columns:1fr 1fr}
+  .vsmid{display:none}
+  .fields{grid-template-columns:repeat(4,1fr)}
+  .figs{grid-template-columns:repeat(4,1fr)}
+  .flow{grid-template-columns:repeat(3,1fr)}
+  .flow .st{flex-direction:column;gap:9px}
+  .pc{grid-template-columns:1fr 1fr;gap:26px}
+  .stats{grid-template-columns:repeat(3,1fr)}
+  .stat.wide{grid-column:auto}
+  .gl{display:grid;grid-template-columns:1fr 1fr;gap:0 26px}
+  .take{padding:38px 30px}
+  .profile{grid-template-columns:150px minmax(0,1fr);gap:28px;padding:28px 30px}
+  .profile-avatar{width:150px;height:150px}
+  .profile-head h3{font-size:29px}
+  .profile-tag{font-size:15px}
+  .profile-stats{font-size:13.5px}
+  .profile-bio{font-size:14px}
+  .tw,.tabs{margin-left:0;margin-right:0;padding:0}
+  .fab{right:28px;bottom:28px}
+}
+@media (min-width:1040px){.bar-in{max-width:1160px}}
+@media (prefers-reduced-motion:reduce){
+  html{scroll-behavior:auto}
+  *{animation:none!important;transition-duration:.01ms!important}
+  .rv{opacity:1;transform:none}
+  .hero h1 .hl{background-size:100% 100%}
+}
+</style>
+</head>
+<body>
+
+<div class="bar">
+  <div class="bar-in">
+    <div class="bar-t"><b>눙글이 쉽게 풀어쓴</b> 하반기 ETF 투자전략</div>
+    <nav class="pills" id="pills">
+      <a href="#market">시황</a><a href="#basic">ETF 기본</a><a href="#name">이름 읽기</a>
+      <a href="#types">전략형 3종</a><a href="#port">포트폴리오</a>
+      <a href="#qa">Q&amp;A</a><a href="#gloss">용어</a>
+    </nav>
+    <div id="prog"></div>
+  </div>
+</div>
+
+<main id="top">
+
+<header class="hero" id="hero">
+  <div class="w">
+    <div class="tagline">눙글의 하반기 ETF 세미나 노트</div>
+    <h1>이름만 알아도<br><span class="hl">절반은 가는 ETF</span></h1>
+    <p>ETF가 처음이어도 괜찮아요. 증권사 세미나에서 들은 내용을 토대로 하나씩 정리했어요!</p>
+    <div class="meta"><span>발표일 2026.08.28</span><span>약 10분</span></div>
+    <div class="cue"><i></i> 내려서 보기</div>
+  </div>
+</header>
+
+<!-- ===== 시황 ===== -->
+<section class="s" id="market">
+  <div class="w">
+    <div class="rv">
+      <div class="stitle"><span class="no">01</span><h2>시황</h2></div>
+      <p class="lead">7월부터 주가가 크게 오르내렸어요. 그래도 AI 산업에는 계속 돈이 들어가고 있어요. 지금은 어떤 회사들이 주목받는 시기인지 함께 볼게요.</p>
+    </div>
+
+    <h3 class="h rv">AI 투자 사이클 세 구간</h3>
+    <div class="swipe rv" id="cycSwipe">
+      <div>
+        <span class="tag">2022 — 2024</span>
+        <h4>GPU와 HBM의 시대</h4>
+        <p>AI를 처음 가르칠 때는 빠르게 계산하는 반도체가 많이 필요했어요. 그래서 엔비디아 삼성전자 SK하이닉스 같은 회사가 주목받았어요.</p>
+      </div>
+      <div class="live">
+        <span class="tag">2025 — 2026</span>
+        <h4>병목이 저장장치로<br>넘어갔어요</h4>
+        <p>요즘은 많은 데이터를 저장하고 빠르게 꺼내는 부품이 중요해졌어요. 그중 하나가 낸드예요. 낸드는 전원을 꺼도 사진이나 파일이 사라지지 않게 저장하는 반도체예요. <span class="mark">삼성전자 SK하이닉스 마이크론 샌디스크 키옥시아</span>가 세계 낸드 대부분을 만들어요.</p>
+      </div>
+      <div>
+        <span class="tag">그 이후</span>
+        <h4>전력과 데이터센터</h4>
+        <p>AI를 계속 쓰려면 전기가 아주 많이 필요해요. 앞으로는 전기를 만들고 보내는 설비와 데이터센터가 더 중요해질 수 있어요.</p>
+      </div>
+    </div>
+    <div class="dots" id="cycDots"><i class="on"></i><i></i><i></i></div>
+    <div class="hintsw">옆으로 밀어보세요</div>
+
+    <h3 class="big rv">하반기엔 <em>이 세 가지</em>를<br>보세요</h3>
+    <div class="bigsub rv">전문가가 꼽은 하반기 중심 축이에요</div>
+    <div class="keys rv">
+      <div class="keyx"><i>01</i><b>반도체</b><span>메모리와 낸드를 만드는 회사! 여러 해 동안 제품을 공급하는 계약이 늘면서 앞으로 벌 돈을 예상하기 쉬워졌어요. 주가도 회사가 버는 돈에 비해 아주 비싼 편은 아니라는 분위기예요.</span></div>
+      <div class="keyx"><i>02</i><b>전력 설비</b><span>AI를 키우려면 전기가 더 많이 필요해요. 그래서 전기를 만들고 보내는 장비를 만드는 회사들이 계속 주목받고 있어요.</span></div>
+      <div class="keyx"><i>03</i><b>데이터센터</b><span>AI 서버를 모아 두는 큰 건물이에요. 주요 클라우드 회사들이 데이터센터에 쓴 돈을 실제 이익으로 바꾸기 시작했대요.</span></div>
+    </div>
+
+    <h3 class="h rv">반도체 섹터, 7~8월에는 약했는데 괜찮을까?</h3>
+    <div class="rv" data-acc>
+      <div class="ac good"><button class="ac-h" type="button"><span class="n">1</span><span class="tt">회사가 돈 버는 힘은 크게 나빠지지 않았어요</span><span class="cv"></span></button>
+        <div class="ac-b"><div class="ac-in"><div class="ac-p">
+          주가는 크게 떨어졌지만 회사의 매출과 이익 전망은 크게 나빠지지 않았어요. 발표자는 주가가 잠시 쉬어가는 과정으로 봤어요. 회사 자체의 힘이 약해진 건 아니라는 분위기예요.
+        </div></div></div>
+      </div>
+      <div class="ac good"><button class="ac-h" type="button"><span class="n">2</span><span class="tt">장기공급계약이 판을 바꿨어요</span><span class="cv"></span></button>
+        <div class="ac-b"><div class="ac-in"><div class="ac-p">
+          반도체 가격은 자주 오르내려서 회사가 벌 돈을 예상하기 어려웠어요. 하지만 고객과 여러 해 동안 공급할 수량과 가격을 미리 정하면 매출이 더 안정돼요. <b>긴 계약이 많아질수록</b> 앞으로의 이익도 예상하기 쉬워져요.
+        </div></div></div>
+      </div>
+      <div class="ac good"><button class="ac-h" type="button"><span class="n">3</span><span class="tt">회사가 버는 돈에 비해 주가가 싼 편이었어요</span><span class="cv"></span></button>
+        <div class="ac-b"><div class="ac-in"><div class="ac-p">
+          발표자가 계산한 PER은 삼성전자와 SK하이닉스 모두 약 <b>4.9배</b>였어요. PER은 회사가 1년 동안 버는 돈에 비해 주가가 몇 배인지 보여주는 숫자예요. 숫자가 낮을수록 주가가 상대적으로 싼지 살펴볼 때 도움이 돼요.
+          <div class="small">다만 PER이 낮다고 무조건 오르는 것은 아니에요. 발표자는 매출이 지금처럼 유지된다는 조건에서 주가가 싼 편이라고 봤어요.</div>
+        </div></div></div>
+      </div>
+    </div>
+
+    <h3 class="h rv">앞으로는 AI를 잘 쓰는 기업이 주목받을 거예요</h3>
+    <p class="lead rv">미국 실적발표는 <b>실적이 좋다</b>보다 <b>왜 좋아졌는지</b>를 봐야 해요. 요즘 발표에 반복되는 문장은 거의 하나예요. "AI로 비용을 줄였다"예요. 2026년 2분기 사례 두 개를 눌러보세요.</p>
+    <div class="rv" data-acc>
+      <div class="ac"><button class="ac-h" type="button"><span class="n">A</span><span class="tt">Airbnb — 고객지원 문의 45%를 AI가 처리</span><span class="cv"></span></button>
+        <div class="ac-b"><div class="ac-in"><div class="ac-p">
+          고객센터는 원래 시간대별로 문의가 몰려요. 장 시작이나 사고가 났을 때 몇 천 건이 한꺼번에 들어오죠. 그 피크에 맞춰 사람을 뽑으면 나머지 시간엔 놀게 되고요. Airbnb는 이걸 AI로 풀었어요.
+          <dl class="kv">
+            <div><dt>활용처</dt><dd>50개 이상 언어를 지원하는 AI 고객지원 어시스턴트</dd></div>
+            <div><dt>효과</dt><dd>문의의 약 45%를 사람 없이 해결 → 예약당 고객지원 비용 전년比 약 16% 감소</dd></div>
+            <div><dt>마진</dt><dd>2분기 조정 EBITDA 마진 35% (+21% YoY)</dd></div>
+            <div><dt>속도</dt><dd>기획에서 출시까지 최대 60% 단축 신규기능 출시 건수 약 80% 증가</dd></div>
+            <div><dt>가이던스</dt><dd>매출성장률 '중반대'로 상향 EBITDA 마진 목표 35% → 35.5%</dd></div>
+          </dl>
+        </div></div></div>
+      </div>
+      <div class="ac"><button class="ac-h" type="button"><span class="n">B</span><span class="tt">IBM — 매출은 1% 성장 근데 마진은 개선</span><span class="cv"></span></button>
+        <div class="ac-b"><div class="ac-in"><div class="ac-p">
+          IBM은 개발자들에게 아예 자체 AI 코딩툴을 쥐여줬어요. 성장이 멎은 회사도 AI로 마진을 지킬 수 있다는 걸 보여준 사례죠.
+          <dl class="kv">
+            <div><dt>활용처</dt><dd>자체 AI 코딩툴(직원 8만 명 이상 사용) 영업·마케팅 공급망 최적화</dd></div>
+            <div><dt>효과</dt><dd>상반기 잉여현금흐름 50억 달러 창출</dd></div>
+            <div><dt>마진</dt><dd>2분기 비GAAP 세전마진 전년比 +30bp. 매출성장은 1%인데 마진은 개선</dd></div>
+            <div><dt>배경</dt><dd>소프트웨어 부문 매출 77.6억 달러(+5%)가 견인 인프라 부문은 감소</dd></div>
+            <div><dt>가이던스</dt><dd>연간 세전마진 확대폭 100bp로 상향</dd></div>
+          </dl>
+          <div class="small">두 회사 모두 'AI 투자 → 비용 절감 → 마진 확대 → 가이던스 상향' 흐름을 실적으로 증명했어요. 성장이 멈춘 IBM조차 그랬다는 게 포인트예요.</div>
+        </div></div></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ===== ETF 기본 ===== -->
+<section class="s" id="basic">
+  <div class="w">
+    <div class="rv">
+      <div class="stitle"><span class="no">02</span><h2>ETF 기본</h2></div>
+      <div class="hook">이미 하고는 있는데 잘 모른다면? 집중!</div>
+      <p class="lead">요즘 ETF는 "분산하고 싶어서" 사는 게 아니에요. 연금이나 IRP DC ISA에선 개별 주식을 못 사니까 어쩔 수 없이 사는 경우가 많죠. 돈은 들어가 있는데 뭘 샀는지도 몰라 방치했다면 오늘 여기서 반은 먹고 가보는 거 어때요?</p>
+    </div>
+
+    <div class="rv" data-acc style="margin-top:24px">
+      <div class="ac good"><button class="ac-h" type="button"><span class="n">?</span><span class="tt">ETF가 대체 뭔데요?</span><span class="cv"></span></button>
+        <div class="ac-b"><div class="ac-in"><div class="ac-p">
+          거래소에서 사고파는 펀드예요. ETF 1개를 사면 <b>수십에서 수백 개 기업</b>을 한 번에 사는 셈이죠. 종목 하나를 맞히는 대신 좋은 산업을 고르는 일에 가까워요. 종목보다 산업 맞히는 게 훨씬 쉽잖아요.
+        </div></div></div>
+      </div>
+      <div class="ac good"><button class="ac-h" type="button"><span class="n">!</span><span class="tt">몰빵해도 최소 10종목은 담는 셈!</span><span class="cv"></span></button>
+        <div class="ac-b"><div class="ac-in"><div class="ac-p">
+          단일종목 레버리지 같은 예외를 빼면 ETF 하나에는 <b>최소 10개 이상</b>의 주식이나 채권이 들어가요. 한 ETF에 전액을 넣어도 그 안에서 최소한의 분산은 이미 되어 있다는 뜻이죠.
+          <div class="small">S&amp;P500형이면 500종목 코스피200형이면 200종목에 나눠 담긴 셈이에요.</div>
+        </div></div></div>
+      </div>
+    </div>
+
+    <h3 class="h rv">ETF의 네 가지 특징</h3>
+    <div class="rv" data-acc>
+      <div class="ac"><button class="ac-h" type="button"><span class="n">01</span><span class="tt">분산투자</span><span class="cv"></span></button>
+        <div class="ac-b"><div class="ac-in"><div class="ac-p">개별 종목이 아니라 시장이나 산업 전체에 한 번에 투자해요.</div></div></div></div>
+      <div class="ac"><button class="ac-h" type="button"><span class="n">02</span><span class="tt">낮은 비용</span><span class="cv"></span></button>
+        <div class="ac-b"><div class="ac-in"><div class="ac-p">일반 펀드보다 운용보수가 낮아요. 장기로 갈수록 이 차이가 커져요.</div></div></div></div>
+      <div class="ac"><button class="ac-h" type="button"><span class="n">03</span><span class="tt">실시간 거래</span><span class="cv"></span></button>
+        <div class="ac-b"><div class="ac-in"><div class="ac-p">펀드는 가입하면 정해진 기준가로 며칠 뒤 들어오는데 ETF는 오전에 사서 오후에 팔 수도 있어요. 주식이랑 똑같죠.</div></div></div></div>
+      <div class="ac"><button class="ac-h" type="button"><span class="n">04</span><span class="tt">투명성</span><span class="cv"></span></button>
+        <div class="ac-b"><div class="ac-in"><div class="ac-p">오늘 어떤 종목을 몇 퍼센트 담고 있는지 <b>매일</b> 확인할 수 있어요. 생각보다 중요한 부분이에요.</div></div></div></div>
+    </div>
+
+    <h3 class="h rv">이거 완전 안전한 거네요?</h3>
+    <div class="vs rv">
+      <div class="a"><div class="t">이렇게 생각하기 쉬워요</div>
+        <h4>“ETF는 분산돼 있으니까<br>무조건 안전하지”</h4>
+        <p>ETF도 결국 투자상품이에요. 포장만 다를 뿐 안에 담긴 자산이 그대로 움직여요.</p></div>
+      <div class="vsmid">VS</div>
+      <div class="b"><div class="t">실제로는</div>
+        <h4>반도체가 떨어지면<br>반도체 ETF도 떨어져요</h4>
+        <p>요즘처럼 특정 종목 비중이 확 올라간 상황에선 ETF가 하루에 10~20% 움직이기도 해요. 상대적으로 안전할 뿐 무조건은 아니에요.</p></div>
+    </div>
+
+    <h3 class="big rv">사기 전에 <em>확인하기</em></h3>
+    <div class="bigsub rv">이 네 가지만 봐도 절반은 준비된 거예요</div>
+    <div class="rv" data-acc>
+      <div class="ac"><button class="ac-h" type="button"><span class="n">01</span><span class="tt">기초지수</span><span class="cv"></span></button>
+        <div class="ac-b"><div class="ac-in"><div class="ac-p">이 ETF가 어떤 지수를 따라가는지예요. BM이라고도 불러요. 모든 ETF는 따라갈 지수를 미리 정해두고 투자설명서에 적어둬요. 여기서 시작해야 해요.</div></div></div></div>
+      <div class="ac hot"><button class="ac-h" type="button"><span class="n">02</span><span class="tt">순자산 규모 — 상장폐지가 걸려 있어요</span><span class="cv"></span></button>
+        <div class="ac-b"><div class="ac-in"><div class="ac-p">펀드의 총 몸집이에요. 일반 종목의 시가총액 같은 거죠. 너무 작으면 큰 매매 한 건에 가격이 확 튀어요. 그리고 <b>50억 원 미만이 1년쯤 이어지면 상장폐지</b> 대상이 돼요.</div></div></div></div>
+      <div class="ac"><button class="ac-h" type="button"><span class="n">03</span><span class="tt">거래량</span><span class="cv"></span></button>
+        <div class="ac-b"><div class="ac-in"><div class="ac-p">사고팔기 쉬운지 유동성이 충분한지를 봐요. LP가 호가를 대주긴 하지만 거래가 얇으면 살 때 비싸게 사고 팔 때 싸게 파는 손해가 생겨요. 우리 다 그건 싫잖아요.</div></div></div></div>
+      <div class="ac"><button class="ac-h" type="button"><span class="n">04</span><span class="tt">총보수</span><span class="cv"></span></button>
+        <div class="ac-b"><div class="ac-in"><div class="ac-p">매년 얼마의 비용이 빠져나가는지예요. 운용보수 신탁보수 같은 게 자산에서 계속 나가고 최종 수익률에 그대로 반영돼요.</div></div></div></div>
+    </div>
+
+    <div class="rv" data-acc style="margin-top:16px">
+      <div class="ac hot"><button class="ac-h" type="button"><span class="n">✕</span><span class="tt">"보수만 낮으면 최고 아닌가요?"</span><span class="cv"></span></button>
+        <div class="ac-b"><div class="ac-in"><div class="ac-p">
+          솔직히 발표자도 보수 낮은 걸 먼저 찾는다고 했어요. 어차피 지수 따라갈 거면 싼 게 좋으니까요. 그런데 그것만 보면 안 돼요.
+          <div class="small">추적오차(BM을 잘 따라가나) 괴리율(시장가와 순자산가치 차이) 거래량 순자산 규모까지 같이 봐야 해요. 보수는 중요한 요소 중 하나일 뿐 전부가 아니에요.</div>
+        </div></div></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ===== 이름 읽기 ===== -->
+<section class="s" id="name">
+  <div class="w">
+    <div class="rv">
+      <div class="stitle"><span class="no">03</span><h2>이름 읽기</h2></div>
+      <p class="lead">ETF는 이름만 제대로 읽어도 정보 대부분을 알 수 있어요. 아래 이름을 조각별로 눌러보세요.</p>
+    </div>
+
+    <div class="dec rv" style="margin-top:20px">
+      <div class="cp">👆 조각을 눌러보세요</div>
+      <div class="segs" id="segs">
+        <button class="seg" data-k="brand">OOO</button><button class="seg" data-k="country">미국</button><button class="seg" data-k="asset">S&amp;P500</button><button class="seg" data-k="top">TOP10</button><button class="seg" data-k="tr">TR</button><button class="seg" data-k="active">액티브</button><button class="seg" data-k="lev">레버리지</button>
+      </div>
+      <div class="dec-out" id="decOut"><div class="rl">ETF 이름 읽는 법</div><h4>궁금한 조각을 눌러보세요</h4><p>어려워 보이는 ETF 이름도 조각별로 나누면 뜻을 쉽게 알 수 있어요.</p></div>
+      <div class="dec-tip" id="brandTip" hidden>실제로는 <b>TIGER ACE PLUS SOL KODEX</b> 같은 브랜드 이름이 붙어요!</div>
+    </div>
+
+    <div class="rv" data-acc style="margin-top:16px">
+      <div class="ac hot"><button class="ac-h" type="button"><span class="n">⚠</span><span class="tt">TOP2플러스는 '두 개의 종목'만 담은 게 아니에요</span><span class="cv"></span></button>
+        <div class="ac-b"><div class="ac-in"><div class="ac-p">
+          제일 많이 오해하는 부분이에요. 이름에 TOP2가 붙어 있으면 딱 두 종목만 담았다고 생각하기 쉬운데 아니에요.
+          <div class="small" style="margin-top:14px;font-size:14.5px;color:var(--ink2)">
+            ETF는 최소 10종목 규칙이 있어요. 그래서 <b>TOP2나 TOP3로 끝나는 상품은 아예 만들 수가 없어요.</b> 대신 뒤에 '플러스'나 '+'가 붙죠.<br><br>
+            <b>TOP2플러스</b> = 두 종목에 비중을 크게 싣고 + 나머지 8종목 이상에 나눠 담기<br>
+            <b>TOP3플러스</b> = 세 종목에 비중을 크게 싣고 + 나머지 7종목 이상에 나눠 담기<br><br>
+            그러니까 두 가지를 꼭 확인해야 해요. <b>상위 종목이 실제로 몇 %인지</b> 그리고 <b>나머지 종목이 뭔지</b>요. 상위 3종목이 60%를 넘는 상품도 흔하거든요.
+          </div>
+        </div></div></div>
+      </div>
+    </div>
+
+    <h3 class="big rv">전문가가 알려준 <em>투자팁 함께보기</em></h3>
+    <div class="bigsub rv">이것만 해도 투자 습관이 달라져요</div>
+    <div class="rv" data-acc>
+      <div class="ac"><button class="ac-h" type="button"><span class="n">01</span><span class="tt">분할매수가 최고의 전략이에요</span><span class="cv"></span></button>
+        <div class="ac-b"><div class="ac-in"><div class="ac-p">
+          가진 돈을 한 번에 넣는 분이 정말 많아요. 그런데 주위에서 투자 잘하는 분들은 꼭 나눠 사더래요.
+          <div class="small">시기로 나누거나 금액으로 나누거나 목표가가 올 때마다 추가로 사거나요. 만 원이던 게 구천 원 팔천 원이 될 때마다 담는 식으로요. <b>타이밍보다 시간이 중요해요.</b> 이걸 습관으로 만들어두면 정말 좋아요.</div>
+        </div></div></div></div>
+      <div class="ac"><button class="ac-h" type="button"><span class="n">02</span><span class="tt">안정적인 ETF를 중심에 두세요</span><span class="cv"></span></button>
+        <div class="ac-b"><div class="ac-in"><div class="ac-p">
+          발표자가 가장 추천한 방법이에요. 전체 돈의 70~80%는 시장 전체에 넓게 투자하고 나머지 20~30%만 관심 있는 산업에 투자하는 방식이에요.
+          <div class="small">코스피200이나 S&amp;P500처럼 여러 회사에 넓게 투자하는 ETF를 중심에 둬요. 그다음 확신이 있는 산업이나 주제를 조금 더 담아요. 아래 <a href="#port">포트폴리오</a>에서 비중을 자세히 볼 수 있어요.</div>
+        </div></div></div></div>
+      <div class="ac"><button class="ac-h" type="button"><span class="n">03</span><span class="tt">ETF 비중도 가끔 처음 계획대로 맞춰주세요</span><span class="cv"></span></button>
+        <div class="ac-b"><div class="ac-in"><div class="ac-p">
+          처음에는 시장 전체 ETF 70%와 산업 ETF 30%로 샀다고 해볼게요. 시간이 지나 산업 ETF가 많이 오르면 두 ETF의 비중이 달라져요. 이때 <b>처음 정한 비중으로 다시 맞추는 일</b>이 필요해요.
+          <div class="small">이 일을 리밸런싱이라고 해요. 1년에 한두 번만 확인해도 충분해요. 시장 전체를 따라가는 ETF는 5년이나 10년처럼 길게 보는 편이 좋아요.</div>
+        </div></div></div></div>
+    </div>
+  </div>
+</section>
+
+<!-- ===== 전략형 ===== -->
+<section class="s" id="types">
+  <div class="w">
+    <div class="rv">
+      <div class="stitle"><span class="no">04</span><h2>요즘 시장에서 핫한 ETF 3종</h2></div>
+      <p class="lead">요즘 관심을 많이 받는 세 가지 ETF예요. 압축형 커버드콜 액티브는 돈을 버는 방법과 위험이 서로 달라요. 이름을 눌러 하나씩 쉽게 알아보세요.</p>
+    </div>
+
+    <div class="tabs rv" role="tablist" style="margin-top:22px">
+      <button role="tab" class="on" data-p="t1" aria-selected="true">압축형(TOP)</button>
+      <button role="tab" data-p="t2" aria-selected="false">커버드콜</button>
+      <button role="tab" data-p="t3" aria-selected="false">액티브</button>
+    </div>
+
+    <div class="panel" id="t1">
+      <div class="ph"><h4>소수 대장주에 몰아 담아요</h4><div class="who">업종 확신이 강한 공격투자자</div></div>
+      <p class="lead">보통 테마 ETF는 20~50종목을 담는데 압축형은 법상 최소인 10종목 안팎으로 줄여요. 분산의 정반대편에 선 상품이죠.</p>
+
+      <h3 class="h">상위 3종목이 이만큼 차지해요</h3>
+      <div class="conc" data-conc>
+        <div><b>일반 테마 ETF — 20~50종목</b>
+          <div class="trk"><div class="t3" data-f="25" style="flex:0">20~30%</div><div class="rs" data-f="75" style="flex:100">나머지</div></div></div>
+        <div><b>압축형(TOP) ETF — 10종목 내외</b>
+          <div class="trk"><div class="t3" data-f="60" style="flex:0">60% 이상도 흔함</div><div class="rs" data-f="40" style="flex:100">나머지</div></div></div>
+      </div>
+      <p class="small">사실상 서너 종목에 자산 대부분이 들어가는 셈이에요. 사기 전에 포트폴리오 비중 확인이 필수예요.</p>
+
+      <div class="pc">
+        <div class="p"><h5>좋은 점</h5><ul>
+          <li>업종이 오르는 구간에선 평균보다 훨씬 잘 나가요</li>
+          <li>업종 내 승자를 정확히 골랐을 때 효율이 가장 높아요</li>
+          <li>세제는 일반 주식형 ETF랑 똑같아요</li></ul></div>
+        <div class="c"><h5>조심할 점</h5><ul>
+          <li>장점이랑 단점이 사실상 같아요. 꺾이면 그만큼 크게 빠져요</li>
+          <li>10종목 내외라 분산 효과가 다른 ETF보다 작아요</li>
+          <li>하이리스크 하이리턴이라 버틸 수 있는지 먼저 생각해보세요</li></ul></div>
+      </div>
+    </div>
+
+    <div class="panel" id="t2" hidden>
+      <div class="ph"><h4>상승을 조금 양보하고<br>현금흐름을 받아요</h4><div class="who">정기 현금흐름이 필요한 투자자</div></div>
+      <p class="lead">요즘 특히 관심을 많이 받는 유형이에요. 어떻게 돈을 나눠주는지 세 단계로 쉽게 볼게요.</p>
+      <div class="flow">
+        <div class="st"><i>1</i><div><h4>기초자산 보유</h4><p>코스피200 나스닥100 반도체 같은 지수나 종목을 그대로 사요.</p></div></div>
+        <div class="st"><i>2</i><div><h4>콜옵션 매도</h4><p>일정 가격 이상 오른 부분에 대한 권리를 시장에 팔아요.</p></div></div>
+        <div class="st"><i>3</i><div><h4>프리미엄 분배</h4><p>받은 옵션 프리미엄을 월 분배금으로 나눠 줘요.</p></div></div>
+      </div>
+
+      <p class="lead" style="margin-top:16px">변동성이 커질수록 프리미엄이 비싸져요. 요즘처럼 하루에 5~6%씩 움직이면 분배율이 확 올라가죠. 그리고 그게 바로 <b>분배율만 보고 사면 안 되는 이유</b>이기도 해요.</p>
+
+      <div data-acc style="margin-top:14px">
+        <div class="ac hot"><button class="ac-h" type="button"><span class="n">↑</span><span class="tt">상방 — 급등해도 내 몫이 아니에요</span><span class="cv"></span></button>
+          <div class="ac-b"><div class="ac-in"><div class="ac-p">기초자산이 행사가격 이상 급등해도 초과 상승분은 옵션 매수자에게 가요. 그래서 강한 상승장에선 총수익률이 <b>그냥 기초자산을 들고 있는 것보다 낮아질 수 있어요.</b></div></div></div></div>
+        <div class="ac hot"><button class="ac-h" type="button"><span class="n">↓</span><span class="tt">하방 — 막아주는 장치가 아니에요</span><span class="cv"></span></button>
+          <div class="ac-b"><div class="ac-in"><div class="ac-p">프리미엄이 하락분을 조금 완충해주긴 하지만 손실을 제한하는 장치는 아니에요. <b>원금손실은 그대로 발생할 수 있어요.</b></div></div></div></div>
+        <div class="ac hot"><button class="ac-h" type="button"><span class="n">₩</span><span class="tt">제 살을 깎아먹을 수 있어요! 이게 뭐냐고요?</span><span class="cv"></span></button>
+          <div class="ac-b"><div class="ac-in"><div class="ac-p">분배금은 매달 나오는데 ETF의 실제 가치인 NAV가 계속 내려가는 경우예요. 만 원에 산 ETF가 구천 원이 됐다면 분배금 일부를 <b>내 원금에서 꺼내 받은 것과 비슷할 수 있어요.</b>
+            <div class="small">종목명에 붙은 '목표분배율'도 확정 수익이 아니에요. 금감원이 소비자경보로 명시한 사항이에요.</div>
+          </div></div></div></div>
+      </div>
+
+      <div class="pc">
+        <div class="p"><h5>좋은 점</h5><ul>
+          <li>연 8~20%대 목표분배율을 매월 나눠 받아요</li>
+          <li>변동성이 커질수록 프리미엄이 올라가 방어적으로 작동해요</li>
+          <li>국내주식형은 옵션프리미엄 수익이 비과세예요</li></ul></div>
+        <div class="c"><h5>조심할 점</h5><ul>
+          <li>'목표분배율'은 확정 수익이 아니에요</li>
+          <li>강한 상승장에선 상방 캡 때문에 지수보다 못 가요</li>
+          <li>분배금 받는 동안 NAV가 계속 깎일 수 있어요</li></ul></div>
+      </div>
+
+      <div class="tool" id="cctool" style="margin-top:24px">
+        <div class="tool-h"><h3>내 커버드콜 괜찮은가?</h3><span class="bd">도구</span></div>
+        <p class="small">"분배율 말고 총수익률로 보세요"를 계산으로 옮겼어요. 숫자 네 개만 넣으면 분배금이 원금에서 나온 건지 판단할 재료를 보여줘요.</p>
+        <div class="fields">
+          <div class="f"><label for="ccBuy">매수가</label><input id="ccBuy" type="number" inputmode="decimal" value="10000"><span class="u">원 · 1주</span></div>
+          <div class="f"><label for="ccNow">현재가</label><input id="ccNow" type="number" inputmode="decimal" value="9300"><span class="u">원 · 1주</span></div>
+          <div class="f"><label for="ccDist">받은 분배금</label><input id="ccDist" type="number" inputmode="decimal" value="1200"><span class="u">원 · 세전 합계</span></div>
+          <div class="f"><label for="ccBm">기초지수 수익률</label><input id="ccBm" type="number" inputmode="decimal" value="8"><span class="u">% · 같은 기간</span></div>
+        </div>
+        <div class="out">
+          <div class="figs">
+            <div class="fig" id="f1"><b>—</b><span>총수익률<br>(가격+분배)</span></div>
+            <div class="fig" id="f2"><b>—</b><span>가격 수익률<br>(NAV 변화)</span></div>
+            <div class="fig" id="f3"><b>—</b><span>분배 수익률</span></div>
+            <div class="fig" id="f4"><b>—</b><span>지수 대비<br>초과·미달</span></div>
+          </div>
+          <div class="vd" id="vd"></div>
+          <p class="small">세전 기준 단순 계산이에요. 실제로는 보수 세금 매매비용이 더 붙고 과거 수치가 미래를 보장하지 않아요. 판단과 책임은 본인에게 있어요.</p>
+        </div>
+      </div>
+    </div>
+
+    <div class="panel" id="t3" hidden>
+      <div class="ph"><h4>시장 평균보다<br>더 높은 수익을 노려요</h4><div class="who">시장 평균보다 더 벌고 싶은 투자자</div></div>
+      <p class="lead">일반 ETF는 코스피200이나 S&amp;P500 같은 지수를 그대로 따라가요. 액티브 ETF는 펀드매니저가 더 오를 것 같은 회사를 고르고 비중도 바꿔요. 시장 평균보다 높은 수익을 목표로 하지만 비용은 더 비싼 편이에요.</p>
+      <div class="stats" data-count>
+        <div class="stat"><b data-to="319" data-suf="개">0</b><span>국내 상장 액티브 ETF (전체 1,155개 中 약 28%)</span></div>
+        <div class="stat"><b data-to="24" data-pre="약 " data-suf="%">0</b><span>국내 ETF 전체 시가총액 중 비중</span></div>
+        <div class="stat wide"><b data-to="0.7" data-dec="1">0</b><span>비교지수 대비 유지해야 하는 최소 상관계수</span></div>
+      </div>
+      <div data-acc>
+        <div class="ac hot"><button class="ac-h" type="button"><span class="n">!</span><span class="tt">성과가 좋아도 상장폐지될 수 있어요</span><span class="cv"></span></button>
+          <div class="ac-b"><div class="ac-in"><div class="ac-p">
+            2026년 상관계수 미달 공시가 <b>570건</b> 나왔어요. 전년 64건 대비 8.9배고 미달 상품 수도 2개에서 18개로 급증했죠. 1년 초과성과 <b>+29.76%p</b>를 내고도 상장폐지된 사례가 있어요.
+            <div class="small">금융당국이 상관계수 요건을 없애는 '완전 액티브 ETF' 도입을 추진 중인데 입법이 지연되고 있어요. 시행 전까진 이 리스크가 그대로 남아요.</div>
+          </div></div></div></div>
+        <div class="ac good"><button class="ac-h" type="button"><span class="n">✓</span><span class="tt">그럼 뭘 확인해야 하나요</span><span class="cv"></span></button>
+          <div class="ac-b"><div class="ac-in"><div class="ac-p">
+            <b>공시를 보세요.</b> 0.7을 못 지키면 미달 공시가 나오는데 아주 작게 올라와서 놓치기 쉬워요. 한 번 벗어나면 계속 벗어날 확률이 높아서 공시가 반복돼요.
+            <div class="small">최근 3~6개월 공시를 훑어보고 미달 공시가 연달아 나오면 상폐 가능성을 염두에 두세요. 눈으로 대충 보려면 비교지수가 100% 올랐을 때 이 ETF가 70~130% 안에 있는지 보면 돼요.</div>
+          </div></div></div></div>
+      </div>
+    </div>
+
+    <h3 class="h rv">셋을 한눈에</h3>
+    <div class="tw rv">
+      <table>
+        <thead><tr><th>구분</th><th>압축형(TOP)</th><th>커버드콜</th><th>액티브</th></tr></thead>
+        <tbody>
+          <tr><th>목적</th><td>업종 승자 집중 →<br>수익률 극대화</td><td>옵션 프리미엄 →<br>월 현금흐름</td><td>매니저 재량 →<br>초과수익</td></tr>
+          <tr><th>리스크</th><td>종목 쏠림<br>변동성 확대</td><td>상승 캡 +<br>NAV 침식</td><td>규제 미달 시<br>강제 상장폐지</td></tr>
+          <tr><th>누구에게</th><td>업종 확신 있는<br>공격투자자</td><td>정기 현금흐름<br>필요한 투자자</td><td>초과성과를<br>노리는 투자자</td></tr>
+          <tr><th>세제</th><td>일반 주식형과 동일</td><td>국내주식형<br>옵션프리미엄 비과세</td><td>일반 주식형과 동일</td></tr>
+        </tbody>
+      </table>
+    </div>
+    <p class="small rv"><b>공통 원칙</b> — 셋 다 상품명이 아니라 기초지수 옵션구조 운용전략 비용 유동성 이 다섯 가지 실질을 봐야 해요.</p>
+  </div>
+</section>
+
+<!-- ===== 포트폴리오 ===== -->
+<section class="s" id="port">
+  <div class="w">
+    <div class="rv">
+      <div class="stitle"><span class="no">05</span><h2>포트폴리오</h2></div>
+      <p class="lead">투자금 대부분은 시장 전체에 넓게 나눠 담아요. 나머지는 기대하는 산업이나 매달 분배금을 주는 ETF에 조금씩 나눠 담는 방법이에요.</p>
+    </div>
+
+    <div class="mixbox rv" style="margin-top:20px">
+      <div class="r"><span class="pcnt">50~60%</span><span><span class="nm">중심 — 시장 전체</span><span class="ds">코스피200이나 S&amp;P500처럼 여러 회사에 넓게 투자하는 ETF를 담아요.</span></span></div>
+      <div class="r"><span class="pcnt">20~30%</span><span><span class="nm">추가 — 관심 산업</span><span class="ds">앞으로 좋아질 것이라고 생각하는 산업이나 액티브 ETF를 조금 더 담아요.</span></span></div>
+      <div class="r"><span class="pcnt">15~25%</span><span><span class="nm">분배금 — 커버드콜</span><span class="ds">매달 현금이 필요하다면 커버드콜 ETF를 일부 담아요.</span></span></div>
+    </div>
+    <p class="small rv">세미나에서 제시한 범위예요. 특정 상품을 권유하는 게 아니고 실제 배분은 본인 상황에 맞게 조정하세요.</p>
+
+    <h3 class="h rv">장에 따라 이렇게 움직여보세요!</h3>
+    <div class="phase rv">
+      <div><div class="w1">상승장 지속 · 업종 주도주가 뚜렷할 때</div><div class="w2">압축형(TOP) 비중 확대</div></div>
+      <div><div class="w1">변동성 확대 · 방향성이 불투명할 때</div><div class="w2">커버드콜 비중 확대</div></div>
+      <div><div class="w1">신생 테마 부상 · 지수 편입이 늦을 때</div><div class="w2">액티브로 선제 대응</div></div>
+    </div>
+  </div>
+</section>
+
+<!-- ===== Q&A ===== -->
+<section class="s" id="qa">
+  <div class="w">
+    <div class="rv">
+      <div class="stitle"><span class="no">06</span><h2>Q&amp;A</h2></div>
+      <p class="lead">세미나 끝나고 실제로 나온 질문 셋이에요.</p>
+    </div>
+    <div class="rv" data-acc style="margin-top:20px">
+      <div class="ac"><button class="ac-h" type="button"><span class="n">Q1</span><span class="tt">고분배율 커버드콜이 제 살 깎아먹기인지 어떻게 알아요?</span><span class="cv"></span></button>
+        <div class="ac-b"><div class="ac-in"><div class="ac-p">
+          최근 1년치 숫자 세 개를 나란히 놓고 보세요. ① 그 기간 <b>분배율 합계</b> ② 같은 기간 <b>ETF 가격 변화</b> ③ <b>기초지수 수익률</b>이요.
+          <div class="small">분배금 받으면서도 가격이 시장 상승률만큼 유지되면 건전한 거예요. 반대로 시장은 보합인데 몇 달 분배금 받고 나니 만 원짜리가 구천 원이 됐다면 원금을 헐어 나눠준 것에 가까워요. 한두 달 높은 분배율만 보면 안 돼요. <a href="#cctool">위 계산 도구</a>에서 직접 넣어볼 수 있어요.</div>
+        </div></div></div></div>
+      <div class="ac"><button class="ac-h" type="button"><span class="n">Q2</span><span class="tt">액티브 ETF 성과 좋아도 상폐된다던데요?</span><span class="cv"></span></button>
+        <div class="ac-b"><div class="ac-in"><div class="ac-p">
+          기준은 상관계수 0.7이에요. 눈으로 대충 보려면 비교지수가 100% 올랐을 때 이 ETF가 70~130% 안에 있는지 보면 되는데 정확하진 않아요.
+          <div class="small">확실한 건 <b>공시</b>예요. 0.7을 못 지키면 미달 공시가 나오는데 아주 작게 떠서 놓치기 쉬워요. 한 번 벗어나면 계속 벗어날 확률이 높아서 공시가 반복돼요. 최근 3~6개월 공시를 뒤져보고 연속으로 나오면 상폐 가능성을 염두에 두세요.</div>
+        </div></div></div></div>
+      <div class="ac"><button class="ac-h" type="button"><span class="n">Q3</span><span class="tt">반도체 ETF에 물렸어요. 기다려야 하나요?</span><span class="cv"></span></button>
+        <div class="ac-b"><div class="ac-in"><div class="ac-p">
+          앞날을 확실하게 맞힐 수는 없다는 점부터 기억해야 해요. 발표자는 7~8월 주가 하락이 회사의 돈 버는 힘이 나빠져서라기보다 잠시 쉬어가는 과정에 가깝다고 봤어요. 주가도 비싼 쪽보다는 <b>싼 쪽에 가깝다</b>고 설명했어요.
+          <div class="small">그래도 한곳에 너무 많이 투자하면 위험해요. 반도체 비중을 조금 줄이고 한국과 미국에 나눠 담는 방법을 제시했어요. 무조건 팔아야 하는 시기는 아니라는 것이 발표자의 의견이었어요.</div>
+        </div></div></div></div>
+    </div>
+
+    <div class="take rv" style="margin-top:34px">
+      <div class="cp">오늘 이 세 가지만 기억하세요</div>
+      <ol>
+        <li><i>1</i><div><b>ETF는 종목을 대신하는 게 아니라 포트폴리오를 만드는 도구예요.</b><span>종목 하나 맞히는 것보다 좋은 산업 고르는 게 쉬워요.</span></div></li>
+        <li><i>2</i><div><b>좋은 ETF는 수익률만이 아니라 비용 유동성 추종력까지 봐야 해요.</b><span>보수만 낮은 게 최고의 ETF는 아니에요.</span></div></li>
+        <li><i>3</i><div><b>Core–Satellite 분할매수 정기 리밸런싱.</b><span>이 셋만 해도 투자 습관이 훨씬 체계적으로 바뀌어요.</span></div></li>
+      </ol>
+    </div>
+  </div>
+</section>
+
+<!-- ===== 용어 ===== -->
+<section class="s" id="gloss">
+  <div class="w">
+    <div class="rv">
+      <div class="stitle"><span class="no">07</span><h2>용어 사전</h2></div>
+      <p class="lead">세미나에 나온 말들을 모았어요. 검색해서 찾아보세요.</p>
+    </div>
+    <div class="gs rv" style="margin:20px 0 6px"><input id="gq" type="search" placeholder="검색 — 예: 괴리율 TR 상관계수" autocomplete="off"></div>
+    <dl class="gl" id="gl"></dl>
+    <p class="gnone" id="gnone" hidden>일치하는 용어가 없어요.</p>
+  </div>
+</section>
+
+</main>
+
+<footer>
+  <div class="ft">
+    <div class="profile">
+      <div class="profile-avatar"><img src="assets/nuungle-whale.png" alt="돈을 들고 파도 위를 헤엄치는 눙글 고래 로고"></div>
+      <div class="profile-info">
+        <div class="profile-head"><h3>nuungle</h3><span class="verified" aria-label="인증">✓</span></div>
+        <div class="profile-tag">눙글 | 경제적 자유를 위하여 🏝️</div>
+        <div class="profile-stats"><span>게시물 <b>30</b></span><span>팔로워 <b>3.9만</b></span><span>팔로우 <b>84</b></span></div>
+        <p class="profile-bio">🐳 돈 되는 정보 파밍 중<br>경제공부부터 나만의 파이프라인을 만드는 과정을 나눠요.<br>월 2주 1만 팔로워 · 8개월 차 월 1,000만 원 만든 이야기!</p>
+        <div class="profile-links"><span>🔗 litt.ly/nuungle</span><span>◎ @nuungle</span></div>
+      </div>
+      <span class="made">기획 · 정리 · 디자인 by 눙글</span>
+    </div>
+    <p class="disc"><b>저작권 및 이용 안내</b> — © 2026 눙글. 이 콘텐츠의 설명 문장, 정보의 선택·배열·구성 및 디자인은 눙글이 직접 창작·편집한 저작물이며 관련 권리는 눙글에게 있습니다. 세미나 발표와 원자료에 관한 권리는 발표자와 주최사 등 원래 권리자에게 있습니다. 캡처하거나 일부를 인용해 공유할 때에는 이미지 또는 게시물 본문에 <b>‘출처: 눙글(@nuungle)’</b>과 원문 링크를 명확히 표시해야 합니다. 출처를 삭제·가리거나, 콘텐츠의 전체 또는 상당 부분을 무단으로 복제·재배포·변형·2차 가공·판매하는 행위를 금지합니다. 침해가 확인되면 게시물의 삭제와 이용 중단을 요청하며, 필요한 경우 저작권법에 따른 민·형사상 조치를 포함한 권리 구제를 검토할 수 있습니다. 이 자료는 2026년 8월 28일 세미나 내용을 학습 목적으로 재구성한 것으로 오기나 누락이 있을 수 있으며, 특정 상품의 추천 또는 투자 자문이 아닙니다. 투자 전에는 투자설명서와 최신 공시를 직접 확인해야 하며 투자 판단과 결과에 대한 책임은 투자자 본인에게 있습니다.</p>
+    <div class="fm"><span>눙글의 하반기 ETF 투자전략</span><span>발표 기준 · 2026.08.28</span><span>© 2026 눙글</span></div>
+  </div>
+</footer>
+
+<div class="source-stamp" aria-hidden="true">© 눙글 · @nuungle</div>
+<div class="guard-toast" id="guardToast" role="status" aria-live="polite"></div>
+<button class="fab" id="fab" aria-label="맨 위로"><i></i></button>
+
+<script>
+(function(){
+"use strict";
+var $=function(s,r){return (r||document).querySelector(s)},
+    $$=function(s,r){return Array.prototype.slice.call((r||document).querySelectorAll(s))},
+    RM=window.matchMedia&&matchMedia('(prefers-reduced-motion: reduce)').matches;
+
+function breakSentences(root){
+ if(!root)return;
+ var w=document.createTreeWalker(root,NodeFilter.SHOW_TEXT),ns=[],n;
+ while(n=w.nextNode())ns.push(n);
+ ns.forEach(function(t){
+  if(!/\.\s+/.test(t.nodeValue))return;
+  var parts=t.nodeValue.split(/(\.\s+)/),f=document.createDocumentFragment();
+  parts.forEach(function(p){
+   if(!p)return;
+   if(/^\.\s+$/.test(p)){f.appendChild(document.createTextNode('.'));f.appendChild(document.createElement('br'));}
+   else f.appendChild(document.createTextNode(p));
+  });
+  t.parentNode.replaceChild(f,t);
+ });
+}
+
+setTimeout(function(){var h=$('#hero');if(h)h.classList.add('lit')},60);
+
+if('IntersectionObserver' in window && !RM){
+  var io=new IntersectionObserver(function(es){es.forEach(function(e){
+    if(e.isIntersecting){e.target.classList.add('in');io.unobserve(e.target);}})},{threshold:.08,rootMargin:'0px 0px -40px 0px'});
+  $$('.rv').forEach(function(el,i){el.style.transitionDelay=(i%3)*60+'ms';io.observe(el)});
+}else{$$('.rv').forEach(function(el){el.classList.add('in')})}
+
+$$('[data-acc]').forEach(function(grp){
+  grp.addEventListener('click',function(e){
+    var h=e.target.closest('.ac-h'); if(!h)return;
+    var ac=h.parentElement, open=ac.classList.contains('on');
+    $$('.ac',grp).forEach(function(x){x.classList.remove('on');
+      var b=$('.ac-h',x); if(b)b.setAttribute('aria-expanded','false');});
+    if(!open){ac.classList.add('on');h.setAttribute('aria-expanded','true');}
+  });
+  $$('.ac-h',grp).forEach(function(b){b.setAttribute('aria-expanded','false')});
+});
+
+var sw=$('#cycSwipe'), dots=$$('#cycDots i');
+if(sw&&dots.length){sw.addEventListener('scroll',function(){
+  var i=Math.round(sw.scrollLeft/(sw.scrollWidth/dots.length));
+  i=Math.max(0,Math.min(dots.length-1,i));
+  dots.forEach(function(d,k){d.classList.toggle('on',k===i)});},{passive:true});}
+
+if('IntersectionObserver' in window){
+  var io2=new IntersectionObserver(function(es){es.forEach(function(e){
+    if(e.isIntersecting){$$('[data-f]',e.target).forEach(function(d){d.style.flex=d.dataset.f});io2.unobserve(e.target);}})},{threshold:.3});
+  $$('[data-conc]').forEach(function(el){io2.observe(el)});
+}
+function fireConc(){$$('[data-conc] [data-f]').forEach(function(d){d.style.flex=d.dataset.f})}
+
+function countUp(el){
+  var to=parseFloat(el.dataset.to), dec=+(el.dataset.dec||0), pre=el.dataset.pre||'', suf=el.dataset.suf||'';
+  if(RM){el.textContent=pre+to.toFixed(dec)+suf;return}
+  var t0=null;
+  function step(t){if(!t0)t0=t;var p=Math.min(1,(t-t0)/900), e=1-Math.pow(1-p,3);
+    el.textContent=pre+(to*e).toFixed(dec)+suf; if(p<1)requestAnimationFrame(step);}
+  requestAnimationFrame(step);
+}
+var counted=false;
+function fireCount(){if(counted)return;counted=true;$$('[data-count] b[data-to]').forEach(countUp)}
+
+var tabs=$('.tabs');
+if(tabs){tabs.addEventListener('click',function(e){
+  var b=e.target.closest('button[data-p]'); if(!b)return;
+  $$('button',tabs).forEach(function(x){x.classList.remove('on');x.setAttribute('aria-selected','false');
+    var p=document.getElementById(x.dataset.p); if(p)p.hidden=true;});
+  b.classList.add('on');b.setAttribute('aria-selected','true');
+  document.getElementById(b.dataset.p).hidden=false;
+  if(b.dataset.p==='t3')fireCount();
+  if(b.dataset.p==='t1')fireConc();
+});}
+
+var DEC={
+ brand:{r:"운용사 브랜드",t:"어느 운용사가 만들었나",b:[
+  "맨 앞은 자산운용사의 브랜드예요. 운용사마다 고유의 ETF 브랜드를 써요.",
+  "같은 지수를 따라가도 운용사에 따라 <b>보수 추적오차 순자산 거래량</b>이 달라요. 브랜드만 보지 말고 이 넷을 비교해보세요."]},
+ country:{r:"투자 국가",t:"어느 나라에 투자하나",b:[
+  "'미국'이 붙으면 미국 '차이나'나 '중국'이면 중국이에요.",
+  "국가명이 없으면 국내예요. '글로벌'이 붙으면 국내랑 해외를 함께 또는 여러 나라에 투자한다는 뜻으로 꼭 표기하게 돼 있어요."]},
+ asset:{r:"기초자산 · 기초지수",t:"뭘 따라가나",b:[
+  "모든 ETF는 따라갈 기초지수(BM)를 미리 정해둬요. S&P500이면 미국 대표 500개 기업이죠.",
+  "섹터명(반도체 헬스케어)이나 테마명(AI 로봇 우주)이 오기도 하고 <b>종목명이 직접</b> 들어가기도 해요. 종목명이 있으면 그 종목을 고정 비중으로 가져간다는 뜻이니 나머지를 뭘로 채우는지 확인하세요."]},
+ top:{r:"압축 정도",t:"상위 몇 종목에 몰아 담나",b:[
+  "지수 구성 종목 중 상위 종목에 집중한다는 뜻이에요. 숫자가 작을수록 소수에 클수록 더 분산돼요.",
+  "<b>주의</b> — TOP2나 TOP3는 그 종목만 담는다는 게 아니에요. 최소 10종목 규칙 때문에 '플러스'가 붙고 상위 2~3종목에 비중을 크게 싣고 나머지 8종목 이상에 나눠요. 상위 3종목이 60% 넘는 경우가 흔하니 비중 확인은 필수예요."]},
+ tr:{r:"분배금 처리",t:"분배금을 주나 재투자하나",b:[
+  "TR(Total Return)은 분배금을 그대로 ETF에 다시 넣어 굴려요. 그래서 <b>분배금이 안 나와요</b>.",
+  "표기가 없는 일반형은 PR(Price Return)로 분배금을 지급해요. \"ETF 샀는데 왜 배당이 안 나오지?\"의 답은 대개 TR이에요."]},
+ active:{r:"운용 방식",t:"매니저가 개입하나",b:[
+  "패시브는 지수를 그대로 따라가고 운용역 역할이 소극적이에요. 액티브는 펀드매니저가 초과수익을 목표로 종목이랑 비중을 조정해요.",
+  "보수가 상대적으로 높고 비교지수 대비 <b>상관계수 0.7</b>을 지켜야 하는 규제가 붙어요. 미달이 이어지면 성과랑 상관없이 상장폐지될 수 있어요."]},
+ lev:{r:"투자 방식",t:"배수와 방향을 정하는 꼬리표",b:[
+  "레버리지는 기초지수 일간 변동의 2배 인버스는 반대 방향 곱버스는 반대 방향의 2배로 움직여요.",
+  "이 표기가 없으면 일반형이에요. 배수형은 일간 수익률을 복리로 누적하기 때문에 <b>오래 들고 있으면 지수랑 수익률이 크게 벌어질 수 있어요.</b>"]}
+};
+var segs=$('#segs'), decOut=$('#decOut'), brandTip=$('#brandTip');
+function drawDec(k){var d=DEC[k];if(!d)return;
+ decOut.innerHTML='<div class="rl">'+d.r+'</div><h4>'+d.t+'</h4>'+d.b.map(function(x){return '<p>'+x+'</p>'}).join('');
+ if(brandTip)brandTip.hidden=k!=='brand';
+ breakSentences(decOut);
+ decOut.classList.remove('flash');void decOut.offsetWidth;decOut.classList.add('flash');}
+if(segs){segs.addEventListener('click',function(e){var b=e.target.closest('.seg');if(!b)return;
+ $$('.seg',segs).forEach(function(s){s.classList.remove('on')});b.classList.add('on');drawDec(b.dataset.k)});
+}
+
+var ci=['ccBuy','ccNow','ccDist','ccBm'].map(function(i){return document.getElementById(i)});
+function pc(x){return (x>=0?'+':'')+x.toFixed(1)+'%'}
+function setF(id,v,txt){var el=$('#'+id),b=el.querySelector('b');b.textContent=txt||pc(v);
+ el.classList.toggle('pos',v>0);el.classList.toggle('neg',v<0);}
+function ccCalc(){
+ var buy=+ci[0].value, now=+ci[1].value, dist=+ci[2].value||0, bm=+ci[3].value||0, vd=$('#vd');
+ if(!(buy>0)){['f1','f2','f3','f4'].forEach(function(i){$('#'+i).querySelector('b').textContent='—'});
+  vd.className='vd v-mid';vd.innerHTML='<b>매수가를 넣어주세요</b>1주 기준 금액이면 돼요.';return;}
+ var price=(now-buy)/buy*100, dy=dist/buy*100, total=price+dy, gap=total-bm;
+ setF('f1',total);setF('f2',price);setF('f3',dy,'+'+dy.toFixed(1)+'%');setF('f4',gap,pc(gap)+'p');
+ var m,c;
+ if(price<0&&bm>=0&&dy>0){c='v-warn';
+  m='<b>⚠ NAV 침식을 의심해볼 구간이에요</b>같은 기간 지수는 '+pc(bm)+'였는데 이 ETF 가격은 '+pc(price)+'였어요. '+
+   '시장이 안 빠졌는데 기준가만 내려갔다면 분배금 상당 부분이 원금에서 나왔을 수 있어요. '+
+   (total<0?'분배금을 더해도 총수익률이 마이너스예요. ':'분배 '+dy.toFixed(1)+'%를 더해 총수익률은 '+pc(total)+'이에요. ')+
+   '최근 NAV 추이랑 옵션 매도 비중을 꼭 확인해보세요.';
+ }else if(price<0&&bm<0&&gap>=0){c='v-mid';
+  m='<b>시장이 같이 빠진 구간이에요</b>지수도 '+pc(bm)+'로 하락했어요. 총수익률 '+pc(total)+'는 지수를 '+gap.toFixed(1)+'%p 앞서요. '+
+   '프리미엄이 하락분을 조금 막아준 모습인데 커버드콜이 하방을 보장하진 않는다는 점은 그대로예요.';
+ }else if(gap>=0){c='v-ok';
+  m='<b>✓ 지수 대비 '+gap.toFixed(1)+'%p 앞섰어요</b>분배금 받으면서도 총수익률이 지수를 따라잡았네요. 상방 캡의 대가를 프리미엄이 메운 구간으로 볼 수 있어요. 다만 한 구간의 결과니까 여러 기간에 걸쳐 다시 확인해보세요.';
+ }else if(gap>-5){c='v-mid';
+  m='<b>지수를 '+Math.abs(gap).toFixed(1)+'%p 밑돌아요</b>커버드콜은 상방을 양보하는 구조라 상승장에서 지수에 조금 뒤처지는 게 정상이에요. 현금흐름이 목적이면 감수할 범위인지 총수익이 목적이면 다른 유형이 맞는지 생각해보세요.';
+ }else{c='v-warn';
+  m='<b>⚠ 지수를 '+Math.abs(gap).toFixed(1)+'%p 밑돌아요. 격차가 커요</b>강한 상승장에서 상방 캡이 크게 작동한 구간으로 보여요. 분배금을 합쳐도 그냥 기초자산을 들고 있는 게 나았다는 뜻이니 보유 목적이 현금흐름인지 총수익인지 다시 정리해보세요.';
+ }
+ vd.className='vd '+c;vd.innerHTML=m;
+}
+if(ci[0]){ci.forEach(function(e){e.addEventListener('input',ccCalc)});ccCalc();}
+
+var G=[
+ ["기초지수","BM","ETF가 따라가기로 미리 정해둔 지수예요. 투자설명서에 적혀 있고 모든 판단의 출발점이에요."],
+ ["총보수","","운용보수 신탁보수 등 매년 자산에서 빠져나가는 비용의 합이에요. 장기일수록 수익률 차이를 키워요."],
+ ["순자산 규모","AUM","펀드의 총 몸집이에요. 일반 종목의 시가총액 같은 거죠. 50억 원 미만이 1년쯤 이어지면 상장폐지 대상이 돼요."],
+ ["추적오차","Tracking Error","ETF 수익률이 기초지수에서 벗어난 정도예요. 운용을 얼마나 잘하고 있는지를 보여줘요."],
+ ["괴리율","","거래소 시장가격과 실제 순자산가치(NAV)의 차이예요. 거래량이 적거나 순자산이 작을수록 벌어져요."],
+ ["NAV","Net Asset Value","순자산가치요. ETF가 담고 있는 자산의 실제 가치 즉 ETF의 '기준가'예요."],
+ ["LP","Liquidity Provider","유동성공급자예요. 매수 매도 호가를 대주어 거래가 원활하게 돌아가도록 돕는 증권사죠."],
+ ["TR / PR","Total / Price Return","TR은 분배금을 재투자해서 분배금을 안 줘요. PR은 분배금을 지급하고 이름에 표기가 없으면 대개 PR이에요."],
+ ["액티브 ETF","","펀드매니저가 초과수익을 목표로 종목이랑 비중을 조정하는 ETF예요. 보수가 높고 상관계수 0.7 규제를 받아요."],
+ ["상관계수","Correlation","액티브 ETF가 비교지수와 얼마나 함께 움직이는지예요. 0.7 미달이 이어지면 성과랑 무관하게 상폐될 수 있어요."],
+ ["압축형 ETF","TOP","구성 종목을 10개 안팎으로 줄여 소수 대장주 비중을 극대화한 ETF예요. TOP 뒤 숫자가 작을수록 집중도가 높아요."],
+ ["커버드콜","Covered Call","기초자산을 보유한 채 콜옵션을 팔아 받은 프리미엄을 분배 재원으로 쓰는 전략이에요. 상방을 양보하고 현금흐름을 얻죠."],
+ ["옵션 프리미엄","","콜옵션을 팔고 받는 대가예요. 시장 변동성이 커질수록 비싸져요."],
+ ["상방 캡","Cap","기초자산이 행사가격 이상 급등해도 초과분이 옵션 매수자에게 가서 내 수익이 일정 수준에서 막히는 구조예요."],
+ ["목표분배율","","커버드콜 ETF가 목표로 내건 연 분배율이에요. 확정 수익이 아니고 금감원이 소비자경보로 명시한 사항이에요."],
+ ["제 살 깎아먹기","","분배금은 나오는데 NAV가 계속 내려가서 결국 원금을 헐어 분배하는 것과 다름없는 상태예요."],
+ ["리밸런싱","Rebalancing","시간이 지나며 틀어진 비중을 원래 계획대로 되돌리는 작업이에요. 보통 1년에 한두 번 해요."],
+ ["Core–Satellite","","시장 전체 ETF를 핵심으로 두고 확신 있는 섹터나 전략 ETF를 위성으로 얹는 구성법이에요."],
+ ["레버리지 / 인버스","","레버리지는 지수 일간 변동의 2배 인버스는 반대 방향이에요. 일간 복리 누적 탓에 오래 들면 지수랑 크게 벌어질 수 있어요."],
+ ["HBM","High Bandwidth Memory","고대역폭 메모리예요. AI 모델 학습 단계에서 GPU와 함께 핵심 부품으로 꼽혔어요."],
+ ["낸드","NAND","전원이 꺼져도 데이터가 남는 저장용 메모리예요. 추론 단계 속도를 좌우해서 하반기 실적 개선 축으로 지목됐어요."],
+ ["분할매수","","한 번에 전액 넣지 않고 시기 금액 목표가 기준으로 나눠 사는 방법이에요. 세미나에서 가장 강조한 습관이에요."]
+];
+var gl=$('#gl'), gq=$('#gq'), gn=$('#gnone');
+function drawG(q){q=(q||'').trim().toLowerCase();
+ var r=G.filter(function(g){return !q||(g[0]+' '+g[1]+' '+g[2]).toLowerCase().indexOf(q)>-1});
+ gl.innerHTML=r.map(function(g){return '<div><dt>'+g[0]+(g[1]?'<em>'+g[1]+'</em>':'')+'</dt><dd>'+g[2]+'</dd></div>'}).join('');breakSentences(gl);
+ gn.hidden=r.length>0;}
+if(gl){drawG('');gq.addEventListener('input',function(){drawG(gq.value)})}
+
+$$('.hero p,.lead,.ac-p,.small,.keyx span,.swipe p,.vs p,.pc li,.mixbox .ds,.take span').forEach(breakSentences);
+
+var guardToast=$('#guardToast'),guardTimer;
+function showGuard(msg){
+ if(!guardToast)return;
+ guardToast.textContent=msg;
+ guardToast.classList.add('on');
+ clearTimeout(guardTimer);
+ guardTimer=setTimeout(function(){guardToast.classList.remove('on')},2600);
+}
+['copy','cut','contextmenu','dragstart'].forEach(function(type){
+ document.addEventListener(type,function(e){
+  e.preventDefault();
+  showGuard('복사와 무단 사용은 제한되어 있어요. 공유할 때는 출처: 눙글(@nuungle)을 표시해주세요.');
+ });
+});
+document.addEventListener('keydown',function(e){
+ var k=(e.key||'').toLowerCase(),cmd=e.metaKey||e.ctrlKey;
+ var capture=e.key==='PrintScreen'||(e.metaKey&&e.shiftKey&&['3','4','5'].indexOf(k)>-1)||(e.metaKey&&e.shiftKey&&k==='s');
+ if(capture){showGuard('화면 캡처 단축키가 감지되었습니다. 공유할 때는 출처: 눙글(@nuungle)을 꼭 남겨주세요.');return;}
+ if(cmd&&['c','x','s','p','u'].indexOf(k)>-1){
+  e.preventDefault();
+  showGuard('복사·저장·인쇄는 제한되어 있어요. 필요한 이용은 눙글에 문의해주세요.');
+ }
+});
+
+var prog=$('#prog'), links=$$('#pills a'), fab=$('#fab'),
+    secs=links.map(function(a){return document.querySelector(a.getAttribute('href'))}), tk=false;
+function onScroll(){
+ var h=document.documentElement, top=h.scrollTop||document.body.scrollTop;
+ prog.style.width=Math.min(100,top/((h.scrollHeight-h.clientHeight)||1)*100)+'%';
+ var y=top+230, cur=-1;
+ secs.forEach(function(s,i){if(s&&s.offsetTop<=y)cur=i});
+ links.forEach(function(a,i){
+  if(i===cur&&!a.classList.contains('on')){a.classList.add('on');
+   a.scrollIntoView({block:'nearest',inline:'center',behavior:RM?'auto':'smooth'});}
+  else if(i!==cur)a.classList.remove('on');});
+ fab.classList.toggle('on',top>600);
+ tk=false;}
+window.addEventListener('scroll',function(){if(!tk){tk=true;requestAnimationFrame(onScroll)}},{passive:true});
+fab.addEventListener('click',function(){window.scrollTo({top:0,behavior:RM?'auto':'smooth'})});
+onScroll();
+})();
+</script>
+</body>
+</html>
